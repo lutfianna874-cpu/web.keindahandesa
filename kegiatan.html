@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEGIATAN | SEPINGGAN GELIK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars">
+        <span>✦</span>
+        <span>✧</span>
+        <span>⋆</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>⋆</span>
+    </div>
+    <div class="floating-leaves">
+        <span>🍃</span>
+        <span>🌿</span>
+        <span>🌱</span>
+        <span>🍂</span>
+    </div>
+    <header>
+        <div class="logo">
+            🌾 <span>SEPINGGAN GELIK</span>
+        </div>
+        <button
+            class="menu-toggle"
+            id="menuToggle">
+            ☰
+        </button>
+        <nav id="navMenu">
+            <a href="index.html">
+                BERANDA
+            </a>
+            <a href="profil.html">
+                PROFIL DESA
+            </a>
+            <a href="keindahan.html">
+                KEINDAHAN
+            </a>
+            <a
+                href="kegiatan.html"
+                class="active">
+                KEGIATAN
+            </a>
+            <a href="lokasi.html">
+                LOKASI
+            </a>
+        </nav>
+        <button
+            id="themeToggle"
+            class="theme-btn">
+            🌙
+        </button>
+    </header>
+    <main class="page">
+        <section class="page-hero">
+            <p>
+                🌿 AKTIVITAS MASYARAKAT
+            </p>
+            <h1>
+                KEGIATAN DESA 
+            </h1>
+            <div class="line"></div>
+        </section>
+        <section class="activity-grid reveal">
+            <div class="activity-card">
+                <img
+                    src="masyarakat.jpg"
+                    alt="Gotong Royong">
+                <div>
+                    <span>🤝</span>
+                    <h2>
+                        GOTONG ROYONG
+                    </h2>
+                    <p>
+                        Kegiatan bersama masyarakat
+                        dalam menjaga kebersihan
+                        dan lingkungan desa.
+                    </p>
+                </div>
+            </div>
+            <div class="activity-card">
+                <img
+                    src="poskamling.jpg"
+                    alt="Poskamling">
+                <div>
+                    <span>🌙</span>
+                    <h2>
+                        POSKAMLING
+                    </h2>
+                    <p>
+                        Kegiatan menjaga keamanan
+                        dan kenyamanan lingkungan
+                        masyarakat.
+                    </p>
+                </div>
+            </div>
+            <div class="activity-card">
+                <img
+                    src="sekolah.jpg"
+                    alt="Kegiatan Sekolah">
+                <div>
+                    <span>📚</span>
+                    <h2>
+                        KEGIATAN PENDIDIKAN
+                    </h2>
+                    <p>
+                        Berbagai aktivitas pendidikan
+                        yang berlangsung di lingkungan
+                        desa.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <audio id="musikDesa" loop>
+        <source
+            src="lagu-desa.mp3"
+            type="audio/mpeg">
+    </audio>
+    <footer>
+        <div class="footer-decoration">
+            🌿 🌾 🌿 🌾 🌿
+        </div>
+        <p>
+            © 2026 DESA SEPINGGAN GELIK 
+        </p>
+        <small>
+           KECAMATAN SEMPARUK  • KABUPATEN SAMBAS
+        </small>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

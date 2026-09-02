@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOKASI | SEPINGGAN GELIK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars">
+        <span>✦</span>
+        <span>✧</span>
+        <span>⋆</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>⋆</span>
+    </div>
+    <div class="floating-leaves">
+        <span>🍃</span>
+        <span>🌿</span>
+        <span>🌱</span>
+        <span>🍂</span>
+    </div>
+    <header>
+        <div class="logo">
+            🌾 <span>SEPINGGAN GELIK</span>
+        </div>
+        <button
+            class="menu-toggle"
+            id="menuToggle">
+            ☰
+        </button>
+        <nav id="navMenu">
+            <a href="index.html">
+                BERANDA
+            </a>
+            <a href="profil.html">
+                PROFIL DESA
+            </a>
+            <a href="keindahan.html">
+                KEINDAHAN
+            </a>
+            <a href="kegiatan.html">
+                KEGIATAN
+            </a>
+            <a
+                href="lokasi.html"
+                class="active">
+                LOKASI
+            </a>
+        </nav>
+        <button
+            id="themeToggle"
+            class="theme-btn">
+            🌙
+        </button>
+    </header>
+    <main class="page">
+        <section class="page-hero">
+            <p>
+                📍 TEMUKAN KAMI
+            </p>
+            <h1>
+                LOKASI DESA
+            </h1>
+            <div class="line"></div>
+        </section>
+        <section class="location-card reveal">
+            <div class="location-info">
+                <span>📍</span>
+                <h2>
+                    DESA SEPINGGAN GELIK
+                </h2>
+                <p>
+                    Kecamatan Semparuk
+                    <br>
+                    Kabupaten Sambas
+                    <br>
+                    Kalimantan Barat, Indonesia
+                </p>
+                <br>
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Desa+Sepinggan+Gelik+Semparuk+Sambas"
+                    target="_blank"
+                    class="btn">
+                    🗺️ Buka Google Maps
+                </a>
+            </div>
+            <div class="map-box">
+                <iframe
+                    src="https://www.google.com/maps?q=Desa%20Sepinggan%20Gelik%20Semparuk%20Sambas&output=embed"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+    </main>
+    <audio id="musikDesa" loop>
+        <source
+            src="lagu-desa.mp3"
+            type="audio/mpeg">
+    </audio>
+    <footer>
+        <div class="footer-decoration">
+            🌿 🌾 🌿 🌾 🌿
+        </div>
+        <p>
+            © 2026 DESA SEPINGGAN GELIK
+        </p>
+        <small>
+            KECAMATAN SEMPARUK • KABUPATEN SAMBAS
+        </small>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

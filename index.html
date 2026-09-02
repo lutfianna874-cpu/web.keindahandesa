@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desa Sepinggan Gelik</title>
+    <link rel="stylesheet" href="style.css">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <div class="stars">
+        <span>✦</span>
+        <span>✧</span>
+        <span>⋆</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>⋆</span>
+        <span>✦</span>
+        <span>✧</span>
+    </div>
+    
+    <div class="floating-leaves">
+        <span>🍃</span>
+        <span>🌿</span>
+        <span>🍃</span>
+        <span>🌱</span>
+        <span>🍂</span>
+        <span>🌿</span>
+    </div>
+   
+    <header>
+        <div class="logo">
+            🌾 <span>SEPINGGAN GELIK</span>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            ☰
+        </button>
+        <nav id="navMenu">
+            <a href="index.html" class="active">
+                BERANDA
+            </a>
+            <a href="profil.html">
+                PROFIL DESA
+            </a>
+            <a href="keindahan.html">
+                KEINDAHAN
+            </a>
+            <a href="kegiatan.html">
+                KEGIATAN
+            </a>
+            <a href="lokasi.html">
+                LOKASI
+            </a>
+        </nav>
+        <button id="themeToggle" class="theme-btn">
+            🌙
+        </button>
+    </header>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="sun"></div>
+        <div class="cloud cloud1">
+            ☁️
+        </div>
+        <div class="cloud cloud2">
+            ☁️
+        </div>
+        <div class="bird bird1">
+            🕊️
+        </div>
+        <div class="bird bird2">
+            🕊️
+        </div>
+        <div class="shooting-star">
+            ✦
+        </div>
+        <div class="hero-content">
+            <p class="welcome">
+                🌿 SELAMAT DATANG DI 🌿
+            </p>
+            <h1>
+                DESA SEPINGGAN GELIK
+            </h1>
+            <div class="line"></div>
+            <p class="hero-description">
+                Desa yang asri, damai, dan penuh
+                kebersamaan di Kecamatan Semparuk,
+                Kabupaten Sambas, Kalimantan Barat.
+            </p>
+            <div class="buttons">
+                <a href="profil.html" class="btn">
+                    🌱 Jelajahi Desa
+                </a>
+                <button id="playMusic" class="btn">
+                    🎵 Putar Musik
+                </button>
+            </div>
+        </div>
+        <div class="grass"></div>
+    </section>
+    <!-- SAMBUTAN -->
+    <section class="sambutan reveal">
+        <div class="section-icon">
+            🎙️
+        </div>
+        <h2>
+            SAMBUTAN DESA
+        </h2>
+        <p>
+            Dengarkan sambutan selamat datang
+            dari Desa Sepinggan Gelik.
+        </p>
+        <audio controls>
+            <source
+                src="suara-sambutan.mp3"
+                type="audio/mpeg">
+        </audio>
+    </section>
+    <!-- PESONA -->
+    <section class="intro reveal">
+        <div class="section-heading">
+            <span>🌾</span>
+            <h2>
+                PESONA DESA SEPINGGAN GELIK
+            </h2>
+            <span>🌾</span>
+        </div>
+        <p>
+            Nikmati keindahan alam, kehidupan masyarakat,
+            kegiatan desa, serta suasana pedesaan yang
+            sederhana dan penuh kehangatan.
+        </p>
+        <div class="mini-gallery">
+            <div class="gallery-card">
+                <img
+                    src="sawah.jpg"
+                    alt="Sawah Desa">
+                <h3>
+                    🌾 Keindahan Sawah
+                </h3>
+            </div>
+            <div class="gallery-card">
+                <img
+                    src="masyarakat.jpg"
+                    alt="Masyarakat Desa">
+                <h3>
+                    👨‍👩‍👧‍👦 Masyarakat
+                </h3>
+            </div>
+            <div class="gallery-card">
+                <img
+                    src="masjid.jpg"
+                    alt="Masjid Desa">
+                <h3>
+                    🕌 Tempat Ibadah
+                </h3>
+            </div>
+        </div>
+    </section>
+    <!-- QUOTE -->
+    <section class="quote">
+        <div class="quote-content">
+            <span>“</span>
+            <p>
+                Desa yang indah bukan hanya karena
+                alamnya, tetapi karena masyarakatnya
+                yang selalu menjaga kebersamaan.
+            </p>
+            <span>”</span>
+        </div>
+    </section>
+    <!-- MUSIK UTAMA -->
+    <audio id="musikDesa" loop>
+        <source
+            src="lagu-desa.mp3"
+            type="audio/mpeg">
+    </audio>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-decoration">
+            🌿 🌾 🌿 🌾 🌿
+        </div>
+        <p>
+            © 2026 Desa Sepinggan Gelik
+        </p>
+        <small>
+            Kecamatan Semparuk • Kabupaten Sambas
+        </small>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
