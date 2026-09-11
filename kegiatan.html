@@ -28,7 +28,6 @@
         <span>⋆</span>
     </div>
 
-
     <!-- DAUN MELAYANG -->
     <div class="floating-leaves">
         <span>🍃</span>
@@ -36,7 +35,6 @@
         <span>🌱</span>
         <span>🍂</span>
     </div>
-
 
     <!-- HEADER -->
     <header>
@@ -89,7 +87,6 @@
     <!-- ISI HALAMAN -->
     <main class="page">
 
-
         <!-- JUDUL -->
         <section class="page-hero">
 
@@ -106,105 +103,168 @@
         </section>
 
 
+        <!-- =========================
+             CARD TAMBAH KEGIATAN
+        ========================== -->
 
-        <!-- TOMBOL TAMBAH -->
         <section class="add-kegiatan-section">
 
             <button
                 id="btnTambahKegiatan"
                 class="btn-tambah-kegiatan">
 
-                ＋ Tambah Kegiatan
+                <span class="tambah-icon">
+                    🌿
+                </span>
+
+                <span class="tambah-text">
+
+                    <strong>
+                        Tambah Kegiatan
+                    </strong>
+
+                    <small>
+                        Tambahkan aktivitas terbaru Desa Sepinggan Gelik
+                    </small>
+
+                </span>
+
+                <span class="tambah-arrow">
+                    ＋
+                </span>
 
             </button>
 
         </section>
 
 
+        <!-- =========================
+             FORM TAMBAH KEGIATAN
+        ========================== -->
 
-        <!-- FORM TAMBAH KEGIATAN -->
         <section
             id="formKegiatan"
             class="form-kegiatan"
-            style="display:none;">
+            style="display: none;">
 
-            <h2>
-                Tambah Kegiatan Desa
-            </h2>
+            <div class="form-header">
+
+                <span class="form-icon">
+                    🌾
+                </span>
+
+                <div>
+                    <h2>
+                        Tambah Kegiatan Desa
+                    </h2>
+
+                    <p>
+                        Isi informasi kegiatan yang ingin ditambahkan.
+                    </p>
+                </div>
+
+            </div>
 
 
             <form id="kegiatanForm">
 
-
                 <!-- JUDUL -->
-                <label for="judul">
-                    Judul Kegiatan
-                </label>
+                <div class="form-group">
 
-                <input
-                    type="text"
-                    id="judul"
-                    name="judul"
-                    placeholder="Contoh: Gotong Royong"
-                    required>
+                    <label for="judul">
+                        Judul Kegiatan
+                    </label>
+
+                    <input
+                        type="text"
+                        id="judul"
+                        name="judul"
+                        placeholder="Contoh: Gotong Royong"
+                        autocomplete="off"
+                        required>
+
+                </div>
 
 
                 <!-- DESKRIPSI -->
-                <label for="deskripsi">
-                    Deskripsi
-                </label>
+                <div class="form-group">
 
-                <textarea
-                    id="deskripsi"
-                    name="deskripsi"
-                    rows="4"
-                    placeholder="Tuliskan deskripsi kegiatan..."
-                    required></textarea>
+                    <label for="deskripsi">
+                        Deskripsi
+                    </label>
+
+                    <textarea
+                        id="deskripsi"
+                        name="deskripsi"
+                        rows="4"
+                        placeholder="Tuliskan deskripsi kegiatan..."
+                        required></textarea>
+
+                </div>
 
 
                 <!-- TANGGAL -->
-                <label for="tanggal">
-                    Tanggal
-                </label>
+                <div class="form-group">
 
-                <input
-                    type="date"
-                    id="tanggal"
-                    name="tanggal"
-                    required>
+                    <label for="tanggal">
+                        Tanggal Kegiatan
+                    </label>
+
+                    <input
+                        type="date"
+                        id="tanggal"
+                        name="tanggal"
+                        required>
+
+                </div>
 
 
                 <!-- LOKASI -->
-                <label for="lokasi">
-                    Lokasi
-                </label>
+                <div class="form-group">
 
-                <input
-                    type="text"
-                    id="lokasi"
-                    name="lokasi"
-                    placeholder="Contoh: Desa Sepinggan Gelik"
-                    required>
+                    <label for="lokasi">
+                        Lokasi
+                    </label>
+
+                    <input
+                        type="text"
+                        id="lokasi"
+                        name="lokasi"
+                        placeholder="Contoh: Desa Sepinggan Gelik"
+                        autocomplete="off"
+                        required>
+
+                </div>
 
 
                 <!-- GAMBAR -->
-                <label for="gambar">
-                    Gambar
-                </label>
+                <div class="form-group">
 
-                <input
-                    type="text"
-                    id="gambar"
-                    name="gambar"
-                    placeholder="Contoh: sd.jpg">
+                    <label for="gambar">
+                        Nama Gambar
+                    </label>
+
+                    <input
+                        type="text"
+                        id="gambar"
+                        name="gambar"
+                        placeholder="Contoh: sd.jpg"
+                        autocomplete="off">
+
+                    <small class="input-info">
+                        📷 Masukkan nama file gambar yang sudah ada di website.
+                    </small>
+
+                </div>
 
 
-                <!-- BUTTON -->
+                <!-- TOMBOL -->
                 <div class="form-buttons">
 
                     <button
                         type="submit"
-                        class="btn-simpan">
+                        class="btn-simpan"
+                        id="btnSimpan">
 
                         💾 Simpan Kegiatan
 
@@ -227,8 +287,10 @@
         </section>
 
 
+        <!-- =========================
+             DATA KEGIATAN
+        ========================== -->
 
-        <!-- DATA DARI GOOGLE SHEETS -->
         <section
             class="activity-grid reveal"
             id="kegiatanContainer">
@@ -242,8 +304,7 @@
     </main>
 
 
-
-    <!-- MUSIK -->
+    <!-- MUSIK DESA -->
     <audio
         id="musikDesa"
         loop>
@@ -253,7 +314,6 @@
             type="audio/mpeg">
 
     </audio>
-
 
 
     <!-- FOOTER -->
