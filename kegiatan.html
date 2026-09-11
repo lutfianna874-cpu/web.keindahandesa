@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- BINTANG -->
     <div class="stars">
         <span>✦</span>
         <span>✧</span>
@@ -18,12 +19,14 @@
         <span>✧</span>
         <span>⋆</span>
     </div>
+    <!-- DAUN MELAYANG -->
     <div class="floating-leaves">
         <span>🍃</span>
         <span>🌿</span>
         <span>🌱</span>
         <span>🍂</span>
     </div>
+    <!-- HEADER -->
     <header>
         <div class="logo">
             🌾 <span>SEPINGGAN GELIK</span>
@@ -58,83 +61,48 @@
             🌙
         </button>
     </header>
+    <!-- ISI HALAMAN -->
     <main class="page">
+        <!-- JUDUL -->
         <section class="page-hero">
             <p>
                 🌿 AKTIVITAS MASYARAKAT
             </p>
             <h1>
-                KEGIATAN DESA 
+                KEGIATAN DESA
             </h1>
             <div class="line"></div>
         </section>
-        <section class="activity-grid reveal">
-            <div class="activity-card">
-                <img
-                    src="masyarakat.jpg"
-                    alt="Gotong Royong">
-                <div>
-                    <span>🤝</span>
-                    <h2>
-                        GOTONG ROYONG
-                    </h2>
-                    <p>
-                        Kegiatan bersama masyarakat
-                        dalam menjaga kebersihan
-                        dan lingkungan desa.
-                    </p>
-                </div>
-            </div>
-            <div class="activity-card">
-                <img
-                    src="poskamling.jpg"
-                    alt="Poskamling">
-                <div>
-                    <span>🌙</span>
-                    <h2>
-                        POSKAMLING
-                    </h2>
-                    <p>
-                        Kegiatan menjaga keamanan
-                        dan kenyamanan lingkungan
-                        masyarakat.
-                    </p>
-                </div>
-            </div>
-            <div class="activity-card">
-                <img
-                    src="sekolah.jpg"
-                    alt="Kegiatan Sekolah">
-                <div>
-                    <span>📚</span>
-                    <h2>
-                        KEGIATAN PENDIDIKAN
-                    </h2>
-                    <p>
-                        Berbagai aktivitas pendidikan
-                        yang berlangsung di lingkungan
-                        desa.
-                    </p>
-                </div>
-            </div>
+        <!-- DATA DARI GOOGLE SHEETS -->
+        <section
+            class="activity-grid reveal"
+            id="kegiatanContainer">
+            <p>
+                Memuat kegiatan desa...
+            </p>
         </section>
     </main>
-    <audio id="musikDesa" loop>
+    <!-- MUSIK -->
+    <audio
+        id="musikDesa"
+        loop>
         <source
             src="lagu-desa.mp3"
             type="audio/mpeg">
     </audio>
+    <!-- FOOTER -->
     <footer>
         <div class="footer-decoration">
             🌿 🌾 🌿 🌾 🌿
         </div>
         <p>
-            © 2026 DESA SEPINGGAN GELIK 
+            ©️ 2026 DESA SEPINGGAN GELIK
         </p>
         <small>
-           KECAMATAN SEMPARUK  • KABUPATEN SAMBAS
+            KECAMATAN SEMPARUK • KABUPATEN SAMBAS
         </small>
     </footer>
+    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
 </body>
 </html>
