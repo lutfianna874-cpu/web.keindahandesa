@@ -37,6 +37,7 @@ if (themeToggle) {
 
         themeToggle.textContent =
             isDark ? "☀️" : "🌙";
+
     });
 }
 
@@ -69,34 +70,38 @@ if (menuToggle && navMenu) {
 const revealElements =
     document.querySelectorAll(".reveal");
 
-const observer =
-    new IntersectionObserver(
+if ("IntersectionObserver" in window) {
 
-        (entries) => {
+    const observer =
+        new IntersectionObserver(
 
-            entries.forEach((entry) => {
+            (entries) => {
 
-                if (entry.isIntersecting) {
+                entries.forEach((entry) => {
 
-                    entry.target.classList.add("show");
+                    if (entry.isIntersecting) {
 
-                }
+                        entry.target.classList.add("show");
 
-            });
+                    }
 
-        },
+                });
 
-        {
-            threshold: 0.15
-        }
+            },
 
-    );
+            {
+                threshold: 0.15
+            }
 
-revealElements.forEach((element) => {
+        );
 
-    observer.observe(element);
+    revealElements.forEach((element) => {
 
-});
+        observer.observe(element);
+
+    });
+
+}
 
 
 /* =====================================================
@@ -116,8 +121,16 @@ if (music) {
 
     if (savedTime) {
 
-        music.currentTime =
-            parseFloat(savedTime);
+        try {
+
+            music.currentTime =
+                parseFloat(savedTime);
+
+        } catch (error) {
+
+            console.log("Gagal mengatur waktu musik.");
+
+        }
 
     }
 
@@ -282,11 +295,16 @@ document.addEventListener(
 
 /* =====================================================
    DATABASE KEGIATAN DESA
+   GOOGLE APPS SCRIPT
 ===================================================== */
 
 const DATABASE_URL =
-    "https://script.google.com/macros/s/AKfycbzE-SlHBHIZhP6cX6MnZpdM5zauirTyDIJ8ANa0i230Vrr4_o_n6eKJgroouCRW3cvXVQ/exec";
+    "https://script.google.com/macros/s/AKfycbwFrLgk1951I9nztG0bTE9ngL-iI6dODmTiWKYVTddyRLRQQsS3qXtd5sGt6hrP8YkO/exec";
 
+
+/* =====================================================
+   TAMPILKAN DATA KEGIATAN
+===================================================== */
 
 async function tampilkanKegiatan() {
 
@@ -300,10 +318,35 @@ async function tampilkanKegiatan() {
         const response =
             await fetch(DATABASE_URL);
 
+        if (!response.ok) {
+
+            throw new Error(
+                "Gagal menghubungi database."
+            );
+
+        }
+
         const data =
             await response.json();
 
         container.innerHTML = "";
+
+        if (!Array.isArray(data) || data.length === 0) {
+
+            container.innerHTML = `
+                <div class="empty-kegiatan">
+                    <p>Belum ada data kegiatan.</p>
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        /* =================================================
+           TAMPILKAN SETIAP KEGIATAN
+        ================================================= */
 
         data.forEach(kegiatan => {
 
@@ -313,37 +356,100 @@ async function tampilkanKegiatan() {
             card.className =
                 "activity-card";
 
-            card.innerHTML = `
 
-                <img
-                    src="${kegiatan.Gambar}"
-                    alt="${kegiatan.Judul}"
-                >
+            /* =============================================
+               FORMAT TANGGAL
+            ============================================= */
 
-                <div>
+            let tanggal = "";
 
-                    <span>🌿</span>
+            if (kegiatan.tanggal) {
 
-                    <h2>
-                        ${kegiatan.Judul}
-                    </h2>
+                const date =
+                    new Date(kegiatan.tanggal);
 
-                    <p>
-                        ${kegiatan.Deskripsi}
-                    </p>
+                if (!isNaN(date.getTime())) {
 
-                    <small>
-                        📅 ${new Date(kegiatan.Tanggal)
-                            .toLocaleDateString("id-ID", {
+                    tanggal =
+                        date.toLocaleDateString(
+                            "id-ID",
+                            {
                                 day: "numeric",
                                 month: "long",
                                 year: "numeric"
-                            })}
-                    </small>
+                            }
+                        );
 
-                    <small>
-                        📍 ${kegiatan.Lokasi}
-                    </small>
+                } else {
+
+                    tanggal =
+                        kegiatan.tanggal;
+
+                }
+
+            }
+
+
+            /* =============================================
+               GAMBAR
+            ============================================= */
+
+            const gambar =
+                kegiatan.gambar || "";
+
+
+            /* =============================================
+               ISI CARD
+            ============================================= */
+
+            card.innerHTML = `
+
+                ${
+                    gambar
+                    ? `
+                        <img
+                            src="${gambar}"
+                            alt="${kegiatan.judul || "Kegiatan Desa"}"
+                            loading="lazy"
+                            onerror="this.style.display='none'"
+                        >
+                    `
+                    : ""
+                }
+
+                <div class="activity-content">
+
+                    <span class="activity-icon">
+                        🌿
+                    </span>
+
+                    <h2>
+                        ${kegiatan.judul || ""}
+                    </h2>
+
+                    <p>
+                        ${kegiatan.deskripsi || ""}
+                    </p>
+
+                    ${
+                        tanggal
+                        ? `
+                            <small>
+                                📅 ${tanggal}
+                            </small>
+                        `
+                        : ""
+                    }
+
+                    ${
+                        kegiatan.lokasi
+                        ? `
+                            <small>
+                                📍 ${kegiatan.lokasi}
+                            </small>
+                        `
+                        : ""
+                    }
 
                 </div>
 
@@ -361,9 +467,17 @@ async function tampilkanKegiatan() {
         );
 
         container.innerHTML = `
-            <p>
-                Data kegiatan belum dapat dimuat.
-            </p>
+            <div class="error-kegiatan">
+
+                <p>
+                    ⚠️ Data kegiatan belum dapat dimuat.
+                </p>
+
+                <small>
+                    Silakan coba refresh halaman.
+                </small>
+
+            </div>
         `;
 
     }
@@ -377,5 +491,9 @@ async function tampilkanKegiatan() {
 
 document.addEventListener(
     "DOMContentLoaded",
-    tampilkanKegiatan
+    () => {
+
+        tampilkanKegiatan();
+
+    }
 );
