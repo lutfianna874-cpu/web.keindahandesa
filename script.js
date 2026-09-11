@@ -230,36 +230,36 @@ document.addEventListener("DOMContentLoaded", function () {
                    AMBIL DATA FORM
                 ------------------------------------- */
 
-                const judul =
+                const Judul =
                     document
-                        .getElementById("judul")
+                        .getElementById("Judul")
                         .value
                         .trim();
 
 
-                const deskripsi =
+                const Deskripsi =
                     document
-                        .getElementById("deskripsi")
+                        .getElementById("Deskripsi")
                         .value
                         .trim();
 
 
-                const tanggal =
+                const Tanggal =
                     document
-                        .getElementById("tanggal")
+                        .getElementById("Tanggal")
                         .value;
 
 
-                const lokasi =
+                const Lokasi =
                     document
-                        .getElementById("lokasi")
+                        .getElementById("Lokasi")
                         .value
                         .trim();
 
 
-                const gambar =
+                const Gambar =
                     document
-                        .getElementById("gambar")
+                        .getElementById("Gambar")
                         .value
                         .trim();
 
@@ -268,14 +268,14 @@ document.addEventListener("DOMContentLoaded", function () {
                    VALIDASI
                 ------------------------------------- */
 
-                if (!judul) {
+                if (!Judul) {
 
                     alert(
                         "Judul kegiatan belum diisi."
                     );
 
                     document
-                        .getElementById("judul")
+                        .getElementById("Judul")
                         .focus();
 
                     return;
@@ -283,14 +283,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                if (!deskripsi) {
+                if (!Deskripsi) {
 
                     alert(
                         "Deskripsi kegiatan belum diisi."
                     );
 
                     document
-                        .getElementById("deskripsi")
+                        .getElementById("Deskripsi")
                         .focus();
 
                     return;
@@ -298,14 +298,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                if (!tanggal) {
+                if (!Tanggal) {
 
                     alert(
                         "Tanggal kegiatan belum dipilih."
                     );
 
                     document
-                        .getElementById("tanggal")
+                        .getElementById("Tanggal")
                         .focus();
 
                     return;
@@ -313,14 +313,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                if (!lokasi) {
+                if (!Lokasi) {
 
                     alert(
                         "Lokasi kegiatan belum diisi."
                     );
 
                     document
-                        .getElementById("lokasi")
+                        .getElementById("Lokasi")
                         .focus();
 
                     return;
@@ -334,15 +334,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const dataKegiatan = {
 
-                    judul: judul,
+                    Judul: Judul,
 
-                    deskripsi: deskripsi,
+                    Deskripsi: Deskripsi,
 
-                    tanggal: tanggal,
+                    Tanggal: Tanggal,
 
-                    lokasi: lokasi,
+                    Lokasi: Lokasi,
 
-                    gambar: gambar
+                    Gambar: Gambar
 
                 };
 
@@ -619,22 +619,22 @@ function tampilkanKegiatan() {
 
 
             if (
-                item.gambar &&
-                String(item.gambar).trim() !== ""
+                item.Gambar &&
+                String(item.Gambar).trim() !== ""
             ) {
 
-                gambarHTML = `
+                GambarHTML = `
 
                     <div class="activity-image">
 
                         <img
                             src="${escapeHTML(
                                 String(
-                                    item.gambar
+                                    item.Gambar
                                 ).trim()
                             )}"
                             alt="${escapeHTML(
-                                item.judul ||
+                                item.Judul ||
                                 "Kegiatan Desa"
                             )}"
                             onerror="
@@ -653,22 +653,22 @@ function tampilkanKegiatan() {
                TANGGAL
             ----------------------------------------- */
 
-            let tanggalText =
+            let TanggalText =
                 item.tanggal || "-";
 
 
-            if (item.tanggal) {
+            if (item.Tanggal) {
 
-                const tanggal =
+                const Tanggal =
                     new Date(
-                        item.tanggal
+                        item.Tanggal
                     );
 
 
-                if (!isNaN(tanggal)) {
+                if (!isNaN(Tanggal)) {
 
-                    tanggalText =
-                        tanggal.toLocaleDateString(
+                    TanggalText =
+                        Tanggal.toLocaleDateString(
                             "id-ID",
                             {
 
@@ -692,7 +692,7 @@ function tampilkanKegiatan() {
 
             card.innerHTML = `
 
-                ${gambarHTML}
+                ${GambarHTML}
 
                 <div class="activity-content">
 
@@ -700,7 +700,7 @@ function tampilkanKegiatan() {
 
                         📅
                         ${escapeHTML(
-                            tanggalText
+                            TanggalText
                         )}
 
                     </span>
@@ -709,7 +709,7 @@ function tampilkanKegiatan() {
                     <h3>
 
                         ${escapeHTML(
-                            item.judul ||
+                            item.Judul ||
                             "Kegiatan Desa"
                         )}
 
@@ -719,7 +719,7 @@ function tampilkanKegiatan() {
                     <p>
 
                         ${escapeHTML(
-                            item.deskripsi ||
+                            item.Deskripsi ||
                             "Tidak ada deskripsi."
                         )}
 
@@ -730,7 +730,7 @@ function tampilkanKegiatan() {
 
                         📍
                         ${escapeHTML(
-                            item.lokasi ||
+                            item.Lokasi ||
                             "Desa Sepinggan Gelik"
                         )}
 
