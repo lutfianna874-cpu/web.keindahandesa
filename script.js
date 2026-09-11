@@ -3,7 +3,7 @@
 ===================================================== */
 
 const DATABASE_URL =
-"https://script.google.com/macros/s/AKfycbwFrLgk1951I9nztG0bTE9ngL-iI6dODmTiWKYVTddyRLRQQsS3qXtd5sGt6hrP8YkO/exec";
+"https://script.google.com/macros/s/AKfycbwFrLgk1951I9nztG0bT0B9ngL-iI6dODmTiWKYVTddyRLRQQsS3qXtd5sGt6hrP8YkO/exec";
 
 
 /* =====================================================
@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
-
 
     if (themeToggle) {
 
@@ -65,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const navMenu =
         document.getElementById("navMenu");
 
-
     if (menuToggle && navMenu) {
 
         menuToggle.addEventListener("click", function () {
@@ -73,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
             navMenu.classList.toggle("show");
 
         });
-
 
         const navLinks =
             navMenu.querySelectorAll("a");
@@ -96,9 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ================================================= */
 
     if (
-        document.getElementById(
-            "kegiatanContainer"
-        )
+        document.getElementById("kegiatanContainer")
     ) {
 
         tampilkanKegiatan();
@@ -120,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "formKegiatan"
         );
 
-
     if (btnTambah && formKegiatan) {
 
         btnTambah.addEventListener(
@@ -128,14 +122,11 @@ document.addEventListener("DOMContentLoaded", function () {
             function () {
 
                 if (
-                    formKegiatan.style.display ===
-                    "none" ||
+                    formKegiatan.style.display === "none" ||
                     formKegiatan.style.display === ""
                 ) {
 
-                    formKegiatan.style.display =
-                        "block";
-
+                    formKegiatan.style.display = "block";
 
                     setTimeout(function () {
 
@@ -144,24 +135,18 @@ document.addEventListener("DOMContentLoaded", function () {
                             block: "start"
                         });
 
-
                         const judul =
-                            document.getElementById(
-                                "judul"
-                            );
+                            document.getElementById("judul");
 
                         if (judul) {
-
                             judul.focus();
-
                         }
 
                     }, 100);
 
                 } else {
 
-                    formKegiatan.style.display =
-                        "none";
+                    formKegiatan.style.display = "none";
 
                 }
 
@@ -176,15 +161,10 @@ document.addEventListener("DOMContentLoaded", function () {
     ================================================= */
 
     const btnBatal =
-        document.getElementById(
-            "btnBatal"
-        );
+        document.getElementById("btnBatal");
 
     const kegiatanForm =
-        document.getElementById(
-            "kegiatanForm"
-        );
-
+        document.getElementById("kegiatanForm");
 
     if (
         btnBatal &&
@@ -198,8 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 kegiatanForm.reset();
 
-                formKegiatan.style.display =
-                    "none";
+                formKegiatan.style.display = "none";
 
             }
         );
@@ -219,11 +198,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 event.preventDefault();
 
-
                 const btnSimpan =
-                    document.getElementById(
-                        "btnSimpan"
-                    );
+                    document.getElementById("btnSimpan");
 
 
                 /* -------------------------------------
@@ -232,34 +208,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const Judul =
                     document
-                        .getElementById("Judul")
+                        .getElementById("judul")
                         .value
                         .trim();
-
 
                 const Deskripsi =
                     document
-                        .getElementById("Deskripsi")
+                        .getElementById("deskripsi")
                         .value
                         .trim();
-
 
                 const Tanggal =
                     document
-                        .getElementById("Tanggal")
+                        .getElementById("tanggal")
                         .value;
-
 
                 const Lokasi =
                     document
-                        .getElementById("Lokasi")
+                        .getElementById("lokasi")
                         .value
                         .trim();
 
-
                 const Gambar =
                     document
-                        .getElementById("Gambar")
+                        .getElementById("gambar")
                         .value
                         .trim();
 
@@ -270,57 +242,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (!Judul) {
 
-                    alert(
-                        "Judul kegiatan belum diisi."
-                    );
+                    alert("Judul kegiatan belum diisi.");
 
                     document
-                        .getElementById("Judul")
+                        .getElementById("judul")
                         .focus();
 
                     return;
 
                 }
-
 
                 if (!Deskripsi) {
 
-                    alert(
-                        "Deskripsi kegiatan belum diisi."
-                    );
+                    alert("Deskripsi kegiatan belum diisi.");
 
                     document
-                        .getElementById("Deskripsi")
+                        .getElementById("deskripsi")
                         .focus();
 
                     return;
 
                 }
-
 
                 if (!Tanggal) {
 
-                    alert(
-                        "Tanggal kegiatan belum dipilih."
-                    );
+                    alert("Tanggal kegiatan belum dipilih.");
 
                     document
-                        .getElementById("Tanggal")
+                        .getElementById("tanggal")
                         .focus();
 
                     return;
 
                 }
 
-
                 if (!Lokasi) {
 
-                    alert(
-                        "Lokasi kegiatan belum diisi."
-                    );
+                    alert("Lokasi kegiatan belum diisi.");
 
                     document
-                        .getElementById("Lokasi")
+                        .getElementById("lokasi")
                         .focus();
 
                     return;
@@ -334,15 +295,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const dataKegiatan = {
 
-                    Judul: Judul,
+                    judul: Judul,
 
-                    Deskripsi: Deskripsi,
+                    deskripsi: Deskripsi,
 
-                    Tanggal: Tanggal,
+                    tanggal: Tanggal,
 
-                    Lokasi: Lokasi,
+                    lokasi: Lokasi,
 
-                    Gambar: Gambar
+                    gambar: Gambar
 
                 };
 
@@ -354,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 /* -------------------------------------
-                   UBAH BUTTON MENJADI LOADING
+                   LOADING
                 ------------------------------------- */
 
                 if (btnSimpan) {
@@ -398,7 +359,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 })
 
-
                 .then(function (text) {
 
                     console.log(
@@ -406,9 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         text
                     );
 
-
                     let result;
-
 
                     try {
 
@@ -424,9 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
 
 
-                    if (
-                        result.success === true
-                    ) {
+                    if (result.success === true) {
 
                         alert(
                             "✅ Kegiatan berhasil ditambahkan!"
@@ -444,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             "none";
 
 
-                        /* REFRESH DATA */
+                        /* TAMPILKAN DATA TERBARU */
 
                         tampilkanKegiatan();
 
@@ -459,14 +415,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 })
 
-
                 .catch(function (error) {
 
                     console.error(
                         "ERROR:",
                         error
                     );
-
 
                     alert(
                         "❌ Gagal menyimpan kegiatan.\n\n" +
@@ -475,13 +429,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 })
 
-
                 .finally(function () {
 
                     if (btnSimpan) {
 
-                        btnSimpan.disabled =
-                            false;
+                        btnSimpan.disabled = false;
 
                         btnSimpan.textContent =
                             "💾 Simpan Kegiatan";
@@ -516,7 +468,6 @@ function tampilkanKegiatan() {
             "kegiatanContainer"
         );
 
-
     if (!container) {
 
         return;
@@ -545,11 +496,9 @@ function tampilkanKegiatan() {
 
         }
 
-
         return response.json();
 
     })
-
 
     .then(function (data) {
 
@@ -592,9 +541,7 @@ function tampilkanKegiatan() {
         }
 
 
-        /* ---------------------------------------------
-           DATA TERBARU DI ATAS
-        --------------------------------------------- */
+        /* DATA TERBARU DI ATAS */
 
         data.reverse();
 
@@ -602,10 +549,7 @@ function tampilkanKegiatan() {
         data.forEach(function (item) {
 
             const card =
-                document.createElement(
-                    "article"
-                );
-
+                document.createElement("article");
 
             card.className =
                 "activity-card";
@@ -623,15 +567,13 @@ function tampilkanKegiatan() {
                 String(item.Gambar).trim() !== ""
             ) {
 
-                GambarHTML = `
+                gambarHTML = `
 
                     <div class="activity-image">
 
                         <img
                             src="${escapeHTML(
-                                String(
-                                    item.Gambar
-                                ).trim()
+                                String(item.Gambar).trim()
                             )}"
                             alt="${escapeHTML(
                                 item.Judul ||
@@ -654,15 +596,13 @@ function tampilkanKegiatan() {
             ----------------------------------------- */
 
             let TanggalText =
-                item.tanggal || "-";
+                item.Tanggal || "-";
 
 
             if (item.Tanggal) {
 
                 const Tanggal =
-                    new Date(
-                        item.Tanggal
-                    );
+                    new Date(item.Tanggal);
 
 
                 if (!isNaN(Tanggal)) {
@@ -692,7 +632,7 @@ function tampilkanKegiatan() {
 
             card.innerHTML = `
 
-                ${GambarHTML}
+                ${gambarHTML}
 
                 <div class="activity-content">
 
@@ -747,7 +687,6 @@ function tampilkanKegiatan() {
 
     })
 
-
     .catch(function (error) {
 
         console.error(
@@ -790,30 +729,15 @@ function escapeHTML(value) {
 
     return String(value)
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
+        .replace(/&/g, "&amp;")
 
-        .replace(
-            /</g,
-            "&lt;"
-        )
+        .replace(/</g, "&lt;")
 
-        .replace(
-            />/g,
-            "&gt;"
-        )
+        .replace(/>/g, "&gt;")
 
-        .replace(
-            /"/g,
-            "&quot;"
-        )
+        .replace(/"/g, "&quot;")
 
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+        .replace(/'/g, "&#039;");
 
 }
 
@@ -825,10 +749,7 @@ function escapeHTML(value) {
 function jalankanMusik() {
 
     const musik =
-        document.getElementById(
-            "musikDesa"
-        );
-
+        document.getElementById("musikDesa");
 
     if (!musik) {
 
@@ -838,9 +759,7 @@ function jalankanMusik() {
 
 
     const posisi =
-        localStorage.getItem(
-            "posisiMusik"
-        );
+        localStorage.getItem("posisiMusik");
 
 
     if (posisi) {
@@ -880,10 +799,6 @@ function jalankanMusik() {
     mulaiMusik();
 
 
-    /* Jika autoplay diblokir,
-       musik akan mulai setelah user
-       melakukan klik pertama */
-
     document.addEventListener(
         "click",
         mulaiMusik,
@@ -892,8 +807,6 @@ function jalankanMusik() {
         }
     );
 
-
-    /* Simpan posisi musik */
 
     musik.addEventListener(
         "timeupdate",
