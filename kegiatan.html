@@ -11,14 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- BINTANG -->
+    <!-- DEKORASI -->
     <div class="stars">
         <span>✦</span>
         <span>✧</span>
@@ -28,13 +27,13 @@
         <span>⋆</span>
     </div>
 
-    <!-- DAUN MELAYANG -->
     <div class="floating-leaves">
         <span>🍃</span>
         <span>🌿</span>
         <span>🌱</span>
         <span>🍂</span>
     </div>
+
 
     <!-- HEADER -->
     <header>
@@ -43,73 +42,45 @@
             🌾 <span>SEPINGGAN GELIK</span>
         </div>
 
-        <button
-            class="menu-toggle"
-            id="menuToggle">
+        <button class="menu-toggle" id="menuToggle">
             ☰
         </button>
 
         <nav id="navMenu">
-
-            <a href="index.html">
-                BERANDA
-            </a>
-
-            <a href="profil.html">
-                PROFIL DESA
-            </a>
-
-            <a href="keindahan.html">
-                KEINDAHAN
-            </a>
-
-            <a
-                href="kegiatan.html"
-                class="active">
-                KEGIATAN
-            </a>
-
-            <a href="lokasi.html">
-                LOKASI
-            </a>
-
+            <a href="index.html">BERANDA</a>
+            <a href="profil.html">PROFIL DESA</a>
+            <a href="keindahan.html">KEINDAHAN</a>
+            <a href="kegiatan.html" class="active">KEGIATAN</a>
+            <a href="lokasi.html">LOKASI</a>
         </nav>
 
-        <button
-            id="themeToggle"
-            class="theme-btn">
+        <button id="themeToggle" class="theme-btn">
             🌙
         </button>
 
     </header>
 
 
-    <!-- ISI HALAMAN -->
+    <!-- CONTENT -->
     <main class="page">
 
         <!-- JUDUL -->
         <section class="page-hero">
 
-            <p>
-                🌿 AKTIVITAS MASYARAKAT
-            </p>
+            <p>🌿 AKTIVITAS MASYARAKAT</p>
 
-            <h1>
-                KEGIATAN DESA
-            </h1>
+            <h1>KEGIATAN DESA</h1>
 
             <div class="line"></div>
 
         </section>
 
 
-        <!-- =========================
-             CARD TAMBAH KEGIATAN
-        ========================== -->
-
+        <!-- TOMBOL TAMBAH -->
         <section class="add-kegiatan-section">
 
             <button
+                type="button"
                 id="btnTambahKegiatan"
                 class="btn-tambah-kegiatan">
 
@@ -138,10 +109,7 @@
         </section>
 
 
-        <!-- =========================
-             FORM TAMBAH KEGIATAN
-        ========================== -->
-
+        <!-- FORM -->
         <section
             id="formKegiatan"
             class="form-kegiatan"
@@ -154,6 +122,7 @@
                 </span>
 
                 <div>
+
                     <h2>
                         Tambah Kegiatan Desa
                     </h2>
@@ -161,6 +130,7 @@
                     <p>
                         Isi informasi kegiatan yang ingin ditambahkan.
                     </p>
+
                 </div>
 
             </div>
@@ -258,7 +228,7 @@
                 </div>
 
 
-                <!-- TOMBOL -->
+                <!-- BUTTON -->
                 <div class="form-buttons">
 
                     <button
@@ -287,10 +257,7 @@
         </section>
 
 
-        <!-- =========================
-             DATA KEGIATAN
-        ========================== -->
-
+        <!-- DATA KEGIATAN -->
         <section
             class="activity-grid reveal"
             id="kegiatanContainer">
@@ -304,7 +271,7 @@
     </main>
 
 
-    <!-- MUSIK DESA -->
+    <!-- MUSIK -->
     <audio
         id="musikDesa"
         loop>
@@ -334,7 +301,6 @@
     </footer>
 
 
-    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
 
 </body>
