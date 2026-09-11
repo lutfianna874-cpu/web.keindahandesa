@@ -1073,3 +1073,633 @@ body.dark-mode .btn-tambah-kegiatan:hover {
             70px 5%;
     }
 }
+/* =====================================================
+   TAMBAH KEGIATAN
+===================================================== */
+
+.add-kegiatan-section {
+    position: relative;
+    z-index: 50;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin: 30px auto 35px;
+
+    padding: 0 20px;
+}
+
+
+/* BUTTON TAMBAH */
+
+.btn-tambah-kegiatan {
+    position: relative;
+    z-index: 51;
+
+    width: min(700px, 100%);
+    min-height: 105px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 20px 24px;
+
+    border: 1px solid rgba(105, 140, 105, .25);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.97),
+            rgba(238,248,237,.97)
+        );
+
+    box-shadow:
+        0 12px 30px rgba(70,100,70,.13);
+
+    cursor: pointer;
+
+    text-align: left;
+
+    overflow: hidden;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    pointer-events: auto;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.btn-tambah-kegiatan:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 38px rgba(70,100,70,.20);
+}
+
+
+.btn-tambah-kegiatan:active {
+    transform: scale(.98);
+}
+
+
+/* ICON */
+
+.tambah-icon {
+    position: relative;
+    z-index: 2;
+
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(112,151,108,.15);
+
+    font-size: 27px;
+
+    pointer-events: none;
+
+    transition: .3s;
+}
+
+
+.btn-tambah-kegiatan:hover .tambah-icon {
+    transform: scale(1.08) rotate(-5deg);
+}
+
+
+/* TEXT */
+
+.tambah-text {
+    position: relative;
+    z-index: 2;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    pointer-events: none;
+}
+
+
+.tambah-text strong {
+    font-family: "Playfair Display", serif;
+
+    font-size: 20px;
+
+    color: #40543d;
+}
+
+
+.tambah-text small {
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 13px;
+
+    color: #7b8977;
+
+    line-height: 1.4;
+}
+
+
+/* PLUS */
+
+.tambah-arrow {
+    position: relative;
+    z-index: 2;
+
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #708f69;
+
+    color: white;
+
+    font-size: 24px;
+
+    pointer-events: none;
+
+    transition: .3s;
+}
+
+
+.btn-tambah-kegiatan:hover .tambah-arrow {
+    transform: rotate(90deg);
+}
+
+
+/* =====================================================
+   FORM KEGIATAN
+===================================================== */
+
+.form-kegiatan {
+    position: relative;
+    z-index: 100;
+
+    width: min(750px, calc(100% - 40px));
+
+    margin: 0 auto 45px;
+
+    padding: 30px;
+
+    background: var(--card, #ffffff);
+
+    border: 1px solid rgba(120,155,126,.25);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 18px 45px rgba(48,70,54,.15);
+
+    pointer-events: auto;
+
+    animation:
+        formMuncul .4s ease;
+}
+
+
+@keyframes formMuncul {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* HEADER FORM */
+
+.form-header {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+.form-icon {
+    width: 55px;
+    height: 55px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: rgba(120,155,126,.15);
+
+    font-size: 25px;
+}
+
+
+.form-header h2 {
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    color: var(--text, #354234);
+}
+
+
+.form-header p {
+    margin: 5px 0 0;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 13px;
+
+    color: var(--muted, #788278);
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.form-group {
+    margin-bottom: 18px;
+
+    position: relative;
+
+    z-index: 101;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: var(--text, #354234);
+}
+
+
+.form-group input,
+.form-group textarea {
+    position: relative;
+
+    z-index: 102;
+
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(120,155,126,.30);
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #354234;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 14px;
+
+    pointer-events: auto;
+
+    user-select: text;
+
+    -webkit-user-select: text;
+
+    cursor: text;
+
+    transition:
+        border-color .3s,
+        box-shadow .3s,
+        background .3s;
+}
+
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 110px;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #708f69;
+
+    box-shadow:
+        0 0 0 4px rgba(120,155,126,.12);
+
+    background: #ffffff;
+}
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9aa69c;
+}
+
+
+/* INFO GAMBAR */
+
+.input-info {
+    display: block;
+
+    margin-top: 7px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 11px;
+
+    color: var(--muted, #788278);
+}
+
+
+/* =====================================================
+   BUTTON FORM
+===================================================== */
+
+.form-buttons {
+    position: relative;
+
+    z-index: 103;
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+.btn-simpan,
+.btn-batal {
+    border: none;
+
+    padding: 13px 20px;
+
+    border-radius: 15px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    transition: .3s;
+}
+
+
+.btn-simpan {
+    flex: 1;
+
+    background: #708f69;
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(70,100,70,.15);
+}
+
+
+.btn-simpan:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.05);
+}
+
+
+.btn-simpan:disabled {
+    opacity: .6;
+
+    cursor: wait;
+
+    transform: none;
+}
+
+
+.btn-batal {
+    background: rgba(120,155,126,.12);
+
+    color: var(--text, #354234);
+}
+
+
+.btn-batal:hover {
+    background: rgba(120,155,126,.20);
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark .btn-tambah-kegiatan {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34,45,35,.97),
+            rgba(43,57,44,.97)
+        );
+
+    border-color:
+        rgba(160,190,155,.18);
+}
+
+
+body.dark .tambah-text strong {
+    color: #e5f0e1;
+}
+
+
+body.dark .tambah-text small {
+    color: #aebaaa;
+}
+
+
+body.dark .form-kegiatan {
+    background: #202d23;
+}
+
+
+body.dark .form-header h2 {
+    color: #e5f0e1;
+}
+
+
+body.dark .form-group label {
+    color: #dce8da;
+}
+
+
+body.dark .form-group input,
+body.dark .form-group textarea {
+    background: #18251c;
+
+    color: #eef5ed;
+
+    border-color:
+        rgba(160,190,155,.20);
+}
+
+
+body.dark .form-group input:focus,
+body.dark .form-group textarea:focus {
+    background: #18251c;
+
+    border-color: #8daa87;
+}
+
+
+body.dark .form-group input::placeholder,
+body.dark .form-group textarea::placeholder {
+    color: #7e8d80;
+}
+
+
+body.dark .btn-batal {
+    color: #e5f0e1;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .add-kegiatan-section {
+        padding: 0 15px;
+
+        margin-top: 20px;
+    }
+
+
+    .btn-tambah-kegiatan {
+        min-height: 92px;
+
+        padding: 16px;
+
+        gap: 12px;
+
+        border-radius: 21px;
+    }
+
+
+    .tambah-icon {
+        width: 50px;
+        height: 50px;
+
+        border-radius: 15px;
+
+        font-size: 23px;
+    }
+
+
+    .tambah-text strong {
+        font-size: 17px;
+    }
+
+
+    .tambah-text small {
+        font-size: 11px;
+    }
+
+
+    .tambah-arrow {
+        width: 38px;
+        height: 38px;
+
+        font-size: 21px;
+    }
+
+
+    .form-kegiatan {
+        width: calc(100% - 30px);
+
+        padding: 22px 18px;
+
+        border-radius: 24px;
+    }
+
+
+    .form-header {
+        align-items: flex-start;
+    }
+
+
+    .form-header h2 {
+        font-size: 21px;
+    }
+
+
+    .form-header p {
+        font-size: 12px;
+    }
+
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+
+    .btn-simpan,
+    .btn-batal {
+        width: 100%;
+    }
+
+}
