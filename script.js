@@ -192,6 +192,52 @@ document.addEventListener(
             music.play()
                 .catch(() => {});
         }
+       const DATABASE_URL = "https://script.google.com/macros/s/AKfycbzE-SlHBHIZhP6cX6MnZpdM5zauirTyDIJ8ANa0i230Vrr4_o_n6eKJgroouCRW3cvXVQ/exec";
+
+async function tampilkanKegiatan() {
+    const container = document.getElementById("kegiatanContainer");
+
+    if (!container) return;
+
+    try {
+        const response = await fetch(DATABASE_URL);
+        const data = await response.json();
+
+        container.innerHTML = "";
+
+        data.forEach(kegiatan => {
+            const card = document.createElement("div");
+
+            card.className = "kegiatan-card";
+
+            card.innerHTML = `
+                <img src="${kegiatan.Gambar}" alt="${kegiatan.Judul}">
+
+                <div class="kegiatan-info">
+                    <h3>${kegiatan.Judul}</h3>
+
+                    <p>${kegiatan.Deskripsi}</p>
+
+                    <small>📅 ${new Date(kegiatan.Tanggal)
+                        .toLocaleDateString("id-ID")}</small>
+
+                    <small>📍 ${kegiatan.Lokasi}</small>
+                </div>
+            `;
+
+            container.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Gagal mengambil data:", error);
+
+        container.innerHTML = `
+            <p>Data kegiatan belum dapat dimuat.</p>
+        `;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", tampilkanKegiatan);
     },
     {
         once: true
