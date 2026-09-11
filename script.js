@@ -8,11 +8,9 @@
    DARK MODE
 ===================================================== */
 
-const themeToggle =
-    document.getElementById("themeToggle");
+const themeToggle = document.getElementById("themeToggle");
 
-const savedTheme =
-    localStorage.getItem("desaTheme");
+const savedTheme = localStorage.getItem("desaTheme");
 
 if (savedTheme === "dark") {
     document.body.classList.add("dark");
@@ -23,6 +21,7 @@ if (savedTheme === "dark") {
 }
 
 if (themeToggle) {
+
     themeToggle.addEventListener("click", () => {
 
         document.body.classList.toggle("dark");
@@ -39,6 +38,7 @@ if (themeToggle) {
             isDark ? "☀️" : "🌙";
 
     });
+
 }
 
 
@@ -128,7 +128,9 @@ if (music) {
 
         } catch (error) {
 
-            console.log("Gagal mengatur waktu musik.");
+            console.log(
+                "Gagal mengatur waktu musik."
+            );
 
         }
 
@@ -139,14 +141,13 @@ if (music) {
 
     if (wasPlaying === "true") {
 
-        music.play()
-            .catch(() => {
+        music.play().catch(() => {
 
-                console.log(
-                    "Browser memblokir autoplay."
-                );
+            console.log(
+                "Browser memblokir autoplay."
+            );
 
-            });
+        });
 
     }
 
@@ -210,7 +211,6 @@ if (playButton && music) {
                         "⏸️ Jeda Musik";
 
                 })
-
                 .catch(() => {
 
                     alert(
@@ -239,7 +239,7 @@ if (playButton && music) {
 
 
 /* =====================================================
-   JIKA USER MENEKAN LINK HALAMAN
+   SIMPAN STATUS MUSIK SAAT PINDAH HALAMAN
 ===================================================== */
 
 document.querySelectorAll("nav a").forEach((link) => {
@@ -281,8 +281,7 @@ document.addEventListener(
             music.paused
         ) {
 
-            music.play()
-                .catch(() => {});
+            music.play().catch(() => {});
 
         }
 
@@ -335,7 +334,7 @@ async function tampilkanKegiatan() {
 
             container.innerHTML = `
                 <div class="empty-kegiatan">
-                    <p>Belum ada data kegiatan.</p>
+                    <p>🌿 Belum ada data kegiatan.</p>
                 </div>
             `;
 
@@ -343,10 +342,6 @@ async function tampilkanKegiatan() {
 
         }
 
-
-        /* =================================================
-           TAMPILKAN SETIAP KEGIATAN
-        ================================================= */
 
         data.forEach(kegiatan => {
 
@@ -357,9 +352,9 @@ async function tampilkanKegiatan() {
                 "activity-card";
 
 
-            /* =============================================
+            /* =========================================
                FORMAT TANGGAL
-            ============================================= */
+            ========================================= */
 
             let tanggal = "";
 
@@ -390,17 +385,17 @@ async function tampilkanKegiatan() {
             }
 
 
-            /* =============================================
+            /* =========================================
                GAMBAR
-            ============================================= */
+            ========================================= */
 
             const gambar =
                 kegiatan.gambar || "";
 
 
-            /* =============================================
-               ISI CARD
-            ============================================= */
+            /* =========================================
+               CARD KEGIATAN
+            ========================================= */
 
             card.innerHTML = `
 
@@ -486,7 +481,270 @@ async function tampilkanKegiatan() {
 
 
 /* =====================================================
-   JALANKAN DATABASE SETELAH HALAMAN SELESAI DIMUAT
+   TAMBAH KEGIATAN
+   BUKA / TUTUP FORM
+===================================================== */
+
+const btnTambahKegiatan =
+    document.getElementById("btnTambahKegiatan");
+
+const formKegiatan =
+    document.getElementById("formKegiatan");
+
+const btnBatal =
+    document.getElementById("btnBatal");
+
+const kegiatanForm =
+    document.getElementById("kegiatanForm");
+
+
+/* =====================================================
+   TOMBOL TAMBAH KEGIATAN
+===================================================== */
+
+if (btnTambahKegiatan && formKegiatan) {
+
+    btnTambahKegiatan.addEventListener(
+        "click",
+        () => {
+
+            if (formKegiatan.style.display === "none") {
+
+                formKegiatan.style.display = "block";
+
+                formKegiatan.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            } else {
+
+                formKegiatan.style.display = "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   TOMBOL BATAL
+===================================================== */
+
+if (btnBatal && formKegiatan) {
+
+    btnBatal.addEventListener(
+        "click",
+        () => {
+
+            formKegiatan.style.display = "none";
+
+            if (kegiatanForm) {
+                kegiatanForm.reset();
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   SIMPAN KEGIATAN KE GOOGLE SHEETS
+===================================================== */
+
+if (kegiatanForm) {
+
+    kegiatanForm.addEventListener(
+        "submit",
+        async (event) => {
+
+            event.preventDefault();
+
+
+            /* =========================================
+               AMBIL DATA FORM
+            ========================================= */
+
+            const judul =
+                document.getElementById("judul").value.trim();
+
+            const deskripsi =
+                document.getElementById("deskripsi").value.trim();
+
+            const tanggal =
+                document.getElementById("tanggal").value;
+
+            const lokasi =
+                document.getElementById("lokasi").value.trim();
+
+            const gambar =
+                document.getElementById("gambar").value.trim();
+
+
+            /* =========================================
+               CEK DATA
+            ========================================= */
+
+            if (
+                !judul ||
+                !deskripsi ||
+                !tanggal ||
+                !lokasi
+            ) {
+
+                alert(
+                    "⚠️ Silakan lengkapi semua data kegiatan."
+                );
+
+                return;
+
+            }
+
+
+            /* =========================================
+               TOMBOL SIMPAN
+            ========================================= */
+
+            const btnSimpan =
+                document.getElementById("btnSimpan");
+
+            const teksAwal =
+                btnSimpan
+                    ? btnSimpan.innerHTML
+                    : "";
+
+
+            if (btnSimpan) {
+
+                btnSimpan.disabled = true;
+
+                btnSimpan.innerHTML =
+                    "⏳ Menyimpan...";
+
+            }
+
+
+            /* =========================================
+               DATA YANG DIKIRIM
+            ========================================= */
+
+            const dataKegiatan = {
+
+                judul: judul,
+
+                deskripsi: deskripsi,
+
+                tanggal: tanggal,
+
+                lokasi: lokasi,
+
+                gambar: gambar
+
+            };
+
+
+            try {
+
+                /*
+                 * text/plain digunakan agar POST
+                 * tidak memicu preflight CORS.
+                 */
+
+                const response =
+                    await fetch(
+                        DATABASE_URL,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "text/plain;charset=utf-8"
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    dataKegiatan
+                                )
+                        }
+                    );
+
+
+                const hasil =
+                    await response.json();
+
+
+                if (!hasil.success) {
+
+                    throw new Error(
+                        hasil.message ||
+                        "Gagal menyimpan kegiatan."
+                    );
+
+                }
+
+
+                /* =====================================
+                   BERHASIL
+                ===================================== */
+
+                alert(
+                    "✅ Kegiatan berhasil ditambahkan!"
+                );
+
+
+                /* Kosongkan form */
+
+                kegiatanForm.reset();
+
+
+                /* Tutup form */
+
+                formKegiatan.style.display =
+                    "none";
+
+
+                /* Tampilkan data terbaru */
+
+                await tampilkanKegiatan();
+
+
+            } catch (error) {
+
+                console.error(
+                    "Gagal menyimpan kegiatan:",
+                    error
+                );
+
+                alert(
+                    "❌ Kegiatan gagal disimpan.\n\n" +
+                    "Pastikan Google Apps Script sudah menggunakan doPost() dan deployment sudah diperbarui."
+                );
+
+            } finally {
+
+                if (btnSimpan) {
+
+                    btnSimpan.disabled = false;
+
+                    btnSimpan.innerHTML =
+                        teksAwal ||
+                        "💾 Simpan Kegiatan";
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   JALANKAN DATABASE SAAT HALAMAN DIMUAT
 ===================================================== */
 
 document.addEventListener(
