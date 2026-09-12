@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>KEGIATAN | SEPINGGAN GELIK</title>
-
-    <link rel="stylesheet" href="style.css">
-
+    <title>Kegiatan Desa | SEPINGGAN GELIK</title>
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap"
+        rel="stylesheet">
 </head>
-
 <body>
-
-    <!-- DEKORASI -->
     <div class="stars">
         <span>✦</span>
         <span>✧</span>
@@ -26,282 +20,111 @@
         <span>✧</span>
         <span>⋆</span>
     </div>
-
     <div class="floating-leaves">
         <span>🍃</span>
         <span>🌿</span>
+        <span>🍃</span>
         <span>🌱</span>
         <span>🍂</span>
+        <span>🌿</span>
     </div>
-
-
     <!-- HEADER -->
     <header>
-
         <div class="logo">
             🌾 <span>SEPINGGAN GELIK</span>
         </div>
-
-        <button class="menu-toggle" id="menuToggle">
+        <button
+            class="menu-toggle"
+            id="menuToggle">
             ☰
         </button>
-
         <nav id="navMenu">
-            <a href="index.html">BERANDA</a>
-            <a href="profil.html">PROFIL DESA</a>
-            <a href="keindahan.html">KEINDAHAN</a>
-            <a href="kegiatan.html" class="active">KEGIATAN</a>
-            <a href="lokasi.html">LOKASI</a>
+            <a href="./index.html">
+                BERANDA
+            </a>
+            <a href="./profil.html">
+                PROFIL DESA
+            </a>
+            <a href="./keindahan.html">
+                KEINDAHAN
+            </a>
+            <a
+                href="./kegiatan.html"
+                class="active">
+                KEGIATAN
+            </a>
+            <a href="./lokasi.html">
+                LOKASI
+            </a>
         </nav>
-
-        <button id="themeToggle" class="theme-btn">
+        <button
+            id="themeToggle"
+            class="theme-btn">
             🌙
         </button>
-
     </header>
-
-
-    <!-- CONTENT -->
+    <!-- MAIN -->
     <main class="page">
-
-        <!-- JUDUL -->
         <section class="page-hero">
-
-            <p>🌿 AKTIVITAS MASYARAKAT</p>
-
-            <h1>KEGIATAN DESA</h1>
-
-            <div class="line"></div>
-
-        </section>
-
-
-        <!-- TOMBOL TAMBAH -->
-        <section class="add-kegiatan-section">
-
-            <button
-                type="button"
-                id="btnTambahKegiatan"
-                class="btn-tambah-kegiatan">
-
-                <span class="tambah-icon">
-                    🌿
-                </span>
-
-                <span class="tambah-text">
-
-                    <strong>
-                        Tambah Kegiatan
-                    </strong>
-
-                    <small>
-                        Tambahkan aktivitas terbaru Desa Sepinggan Gelik
-                    </small>
-
-                </span>
-
-                <span class="tambah-arrow">
-                    ＋
-                </span>
-
-            </button>
-
-        </section>
-
-
-        <!-- FORM -->
-        <section
-            id="formKegiatan"
-            class="form-kegiatan"
-            style="display: none;">
-
-            <div class="form-header">
-
-                <span class="form-icon">
-                    🌾
-                </span>
-
-                <div>
-
-                    <h2>
-                        Tambah Kegiatan Desa
-                    </h2>
-
-                    <p>
-                        Isi informasi kegiatan yang ingin ditambahkan.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <form id="kegiatanForm">
-
-                <!-- JUDUL -->
-                <div class="form-group">
-
-                    <label for="judul">
-                        Judul Kegiatan
-                    </label>
-
-                    <input
-                        type="text"
-                        id="judul"
-                        name="judul"
-                        placeholder="Contoh: Gotong Royong"
-                        autocomplete="off"
-                        required>
-
-                </div>
-
-
-                <!-- DESKRIPSI -->
-                <div class="form-group">
-
-                    <label for="deskripsi">
-                        Deskripsi
-                    </label>
-
-                    <textarea
-                        id="deskripsi"
-                        name="deskripsi"
-                        rows="4"
-                        placeholder="Tuliskan deskripsi kegiatan..."
-                        required></textarea>
-
-                </div>
-
-
-                <!-- TANGGAL -->
-                <div class="form-group">
-
-                    <label for="tanggal">
-                        Tanggal Kegiatan
-                    </label>
-
-                    <input
-                        type="date"
-                        id="tanggal"
-                        name="tanggal"
-                        required>
-
-                </div>
-
-
-                <!-- LOKASI -->
-                <div class="form-group">
-
-                    <label for="lokasi">
-                        Lokasi
-                    </label>
-
-                    <input
-                        type="text"
-                        id="lokasi"
-                        name="lokasi"
-                        placeholder="Contoh: Desa Sepinggan Gelik"
-                        autocomplete="off"
-                        required>
-
-                </div>
-
-
-                <!-- GAMBAR -->
-                <div class="form-group">
-
-                    <label for="gambar">
-                        Nama Gambar
-                    </label>
-
-                    <input
-                        type="text"
-                        id="gambar"
-                        name="gambar"
-                        placeholder="Contoh: sd.jpg"
-                        autocomplete="off">
-
-                    <small class="input-info">
-                        📷 Masukkan nama file gambar yang sudah ada di website.
-                    </small>
-
-                </div>
-
-
-                <!-- BUTTON -->
-                <div class="form-buttons">
-
-                    <button
-                        type="submit"
-                        class="btn-simpan"
-                        id="btnSimpan">
-
-                        💾 Simpan Kegiatan
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        id="btnBatal"
-                        class="btn-batal">
-
-                        Batal
-
-                    </button>
-
-                </div>
-
-            </form>
-
-        </section>
-
-
-        <!-- DATA KEGIATAN -->
-        <section
-            class="activity-grid reveal"
-            id="kegiatanContainer">
-
             <p>
-                Memuat kegiatan desa...
+                🌿 AKTIVITAS MASYARAKAT 🌿
             </p>
-
+            <h1>
+                KEGIATAN DESA
+            </h1>
+            <div class="line"></div>
+            <p>
+                Berbagai kegiatan masyarakat Desa
+                Sepinggan Gelik.
+            </p>
         </section>
-
+        <!-- FILTER -->
+        <section class="activity-section reveal">
+            <div class="activity-filter">
+                <button
+                    class="filter-btn active"
+                    data-filter="all">
+                    Semua
+                </button>
+                <button
+                    class="filter-btn"
+                    data-filter="2026">
+                    2026
+                </button>
+            </div>
+            <!-- CONTAINER KEGIATAN -->
+            <div
+                id="activityContainer"
+                class="activity-container">
+                <div class="loading">
+                    <div class="loader"></div>
+                    <p>
+                        Memuat kegiatan desa...
+                    </p>
+                </div>
+            </div>
+        </section>
     </main>
-
-
     <!-- MUSIK -->
     <audio
         id="musikDesa"
         loop>
-
         <source
-            src="lagu-desa.mp3"
+            src="./lagu-desa.mp3"
             type="audio/mpeg">
-
     </audio>
-
-
     <!-- FOOTER -->
     <footer>
-
         <div class="footer-decoration">
             🌿 🌾 🌿 🌾 🌿
         </div>
-
         <p>
-            ©️ 2026 DESA SEPINGGAN GELIK
+            © 2026 DESA SEPINGGAN GELIK
         </p>
-
         <small>
             KECAMATAN SEMPARUK • KABUPATEN SAMBAS
         </small>
-
     </footer>
-
-
-    <script src="script.js"></script>
-
+    <script src="./script.js"></script>
 </body>
 </html>
