@@ -34,11 +34,11 @@
             <a href="./lokasi.html">LOKASI</a>
         </nav>
 
-        <button id="themeToggle" class="theme-toggle">
+        <button id="themeToggle" class="theme-toggle" type="button">
             🌙
         </button>
 
-        <button id="menuToggle" class="menu-toggle">
+        <button id="menuToggle" class="menu-toggle" type="button">
             ☰
         </button>
 
@@ -48,9 +48,9 @@
     <!-- MAIN -->
     <main>
 
-        <!-- JUDUL -->
         <section class="page">
 
+            <!-- JUDUL -->
             <div class="section-title">
 
                 <p class="eyebrow">
@@ -71,117 +71,29 @@
             <!-- FILTER -->
             <div class="activity-filter">
 
-                <button class="filter-btn active">
+                <button class="filter-btn active" type="button">
                     Semua
                 </button>
 
-                <button class="filter-btn">
+                <button class="filter-btn" type="button">
                     2026
                 </button>
 
             </div>
 
 
-            <!-- KEGIATAN -->
-            <section class="activity-grid">
+            <!--
+                KEGIATAN DARI GOOGLE SHEETS
+                Data akan dimasukkan otomatis oleh script.js
+            -->
+            <section
+                class="activity-grid"
+                id="kegiatanContainer">
 
-                <!-- KEGIATAN 1 -->
-                <article class="activity-card">
-
-                    <img
-                        src="./masyarakat.jpg"
-                        alt="Kegiatan Posyandu"
-                        onerror="this.src='./masyarakat.jpg'"
-                    >
-
-                    <div class="activity-content">
-
-                        <span class="activity-date">
-                            2026
-                        </span>
-
-                        <h3>
-                            Posyandu Desa
-                        </h3>
-
-                        <p>
-                            Kegiatan pelayanan kesehatan masyarakat
-                            Desa Sepinggan Gelik.
-                        </p>
-
-                        <span class="activity-location">
-                            📍 Desa Sepinggan Gelik
-                        </span>
-
-                    </div>
-
-                </article>
-
-
-                <!-- KEGIATAN 2 -->
-                <article class="activity-card">
-
-                    <img
-                        src="./masyarakat.jpg"
-                        alt="Kegiatan Gotong Royong"
-                        onerror="this.src='./masyarakat.jpg'"
-                    >
-
-                    <div class="activity-content">
-
-                        <span class="activity-date">
-                            2026
-                        </span>
-
-                        <h3>
-                            Gotong Royong
-                        </h3>
-
-                        <p>
-                            Kegiatan gotong royong bersama masyarakat
-                            untuk menjaga kebersihan dan lingkungan desa.
-                        </p>
-
-                        <span class="activity-location">
-                            📍 Desa Sepinggan Gelik
-                        </span>
-
-                    </div>
-
-                </article>
-
-
-                <!-- KEGIATAN 3 -->
-                <article class="activity-card">
-
-                    <img
-                        src="./poskamling.jpg"
-                        alt="Keamanan Lingkungan"
-                        onerror="this.src='./poskamling.jpg'"
-                    >
-
-                    <div class="activity-content">
-
-                        <span class="activity-date">
-                            2026
-                        </span>
-
-                        <h3>
-                            Keamanan Lingkungan
-                        </h3>
-
-                        <p>
-                            Kegiatan menjaga keamanan dan ketertiban
-                            lingkungan Desa Sepinggan Gelik.
-                        </p>
-
-                        <span class="activity-location">
-                            📍 Desa Sepinggan Gelik
-                        </span>
-
-                    </div>
-
-                </article>
+                <div class="loading-kegiatan">
+                    <span>🌿</span>
+                    <p>Memuat kegiatan desa...</p>
+                </div>
 
             </section>
 
@@ -204,99 +116,14 @@
     </footer>
 
 
-    <!-- MUSIK -->
+    <!-- MUSIK DESA -->
     <audio id="musikDesa" loop>
         <source src="./lagu-desa.mp3" type="audio/mpeg">
     </audio>
 
 
-    <!-- SCRIPT KHUSUS HALAMAN KEGIATAN -->
-    <script>
-
-        // ================================
-        // DARK MODE
-        // ================================
-
-        const themeToggle = document.getElementById("themeToggle");
-
-        if (localStorage.getItem("theme") === "dark") {
-            document.body.classList.add("dark-mode");
-            themeToggle.textContent = "☀️";
-        }
-
-        themeToggle.addEventListener("click", function () {
-
-            document.body.classList.toggle("dark-mode");
-
-            if (document.body.classList.contains("dark-mode")) {
-                localStorage.setItem("theme", "dark");
-                themeToggle.textContent = "☀️";
-            } else {
-                localStorage.setItem("theme", "light");
-                themeToggle.textContent = "🌙";
-            }
-
-        });
-
-
-        // ================================
-        // MENU MOBILE
-        // ================================
-
-        const menuToggle = document.getElementById("menuToggle");
-        const navMenu = document.getElementById("navMenu");
-
-        if (menuToggle) {
-
-            menuToggle.addEventListener("click", function () {
-
-                navMenu.classList.toggle("show");
-
-            });
-
-        }
-
-
-        // ================================
-        // FILTER
-        // ================================
-
-        const filterButtons =
-            document.querySelectorAll(".filter-btn");
-
-        filterButtons.forEach(function (button) {
-
-            button.addEventListener("click", function () {
-
-                filterButtons.forEach(function (btn) {
-                    btn.classList.remove("active");
-                });
-
-                button.classList.add("active");
-
-            });
-
-        });
-
-
-        // ================================
-        // MUSIK DESA
-        // ================================
-
-        const musik =
-            document.getElementById("musikDesa");
-
-        document.addEventListener("click", function () {
-
-            if (musik && musik.paused) {
-
-                musik.play().catch(function () {});
-
-            }
-
-        }, { once: true });
-
-    </script>
+    <!-- SCRIPT UTAMA WEBSITE -->
+    <script src="./script.js"></script>
 
 </body>
 
