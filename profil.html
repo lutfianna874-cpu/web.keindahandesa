@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Desa | SEPINGGAN GELIK</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap"
+        rel="stylesheet">
 </head>
 <body>
     <div class="stars">
@@ -35,21 +37,21 @@
             ☰
         </button>
         <nav id="navMenu">
-            <a href="index.html">
+            <a href="./index.html">
                 BERANDA
             </a>
             <a
-                href="profil.html"
+                href="./profil.html"
                 class="active">
                 PROFIL DESA
             </a>
-            <a href="keindahan.html">
+            <a href="./keindahan.html">
                 KEINDAHAN
             </a>
-            <a href="kegiatan.html">
+            <a href="./kegiatan.html">
                 KEGIATAN
             </a>
-            <a href="lokasi.html">
+            <a href="./lokasi.html">
                 LOKASI
             </a>
         </nav>
@@ -59,7 +61,9 @@
             🌙
         </button>
     </header>
+    <!-- MAIN -->
     <main class="page">
+        <!-- PAGE HERO -->
         <section class="page-hero">
             <p>
                 🌿 MENGENAL LEBIH DEKAT
@@ -69,10 +73,13 @@
             </h1>
             <div class="line"></div>
         </section>
+        <!-- TENTANG DESA -->
         <section class="content-card reveal">
             <img
-                src="masyarakat.jpg"
-                alt="Masyarakat Desa">
+                src="./masyarakat.jpg"
+                alt="Masyarakat Desa"
+                loading="lazy"
+                onerror="this.src='./masyarakat.jpg';">
             <div>
                 <h2>
                     🌾 TENTANG DESA
@@ -89,45 +96,66 @@
                 </p>
             </div>
         </section>
+        <!-- INFORMASI DESA -->
         <section class="info-grid reveal">
             <div class="info-box">
                 <span>🏡</span>
-                <h3>DESA</h3>
-                <p>Sepinggan Gelik</p>
+                <h3>
+                    DESA
+                </h3>
+                <p>
+                    Sepinggan Gelik
+                </p>
             </div>
             <div class="info-box">
                 <span>📍</span>
-                <h3>KECAMATAN</h3>
-                <p>Semparuk</p>
+                <h3>
+                    KECAMATAN
+                </h3>
+                <p>
+                    Semparuk
+                </p>
             </div>
             <div class="info-box">
                 <span>🌿</span>
-                <h3>KABUPATEN</h3>
-                <p>Sambas</p>
+                <h3>
+                    KABUPATEN
+                </h3>
+                <p>
+                    Sambas
+                </p>
             </div>
             <div class="info-box">
                 <span>🌾</span>
-                <h3>PROVINSI</h3>
-                <p>Kalimantan Barat</p>
+                <h3>
+                    PROVINSI
+                </h3>
+                <p>
+                    Kalimantan Barat
+                </p>
             </div>
         </section>
     </main>
-    <audio id="musikDesa" loop>
+    <!-- MUSIK -->
+    <audio
+        id="musikDesa"
+        loop>
         <source
-            src="lagu-desa.mp3"
+            src="./lagu-desa.mp3"
             type="audio/mpeg">
     </audio>
+    <!-- FOOTER -->
     <footer>
         <div class="footer-decoration">
             🌿 🌾 🌿 🌾 🌿
         </div>
         <p>
-            © 2026 DESA SEPINGGAN GELIK 
+            © 2026 DESA SEPINGGAN GELIK
         </p>
         <small>
             KECAMATAN SEMPARUK • KABUPATEN SAMBAS
         </small>
     </footer>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
