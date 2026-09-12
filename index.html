@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desa Sepinggan Gelik</title>
-    <link rel="stylesheet" href="style.css">
-   
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap" rel="stylesheet">
 </head>
 <body>
-   
     <div class="stars">
         <span>✦</span>
         <span>✧</span>
@@ -22,7 +20,6 @@
         <span>✦</span>
         <span>✧</span>
     </div>
-    
     <div class="floating-leaves">
         <span>🍃</span>
         <span>🌿</span>
@@ -31,7 +28,6 @@
         <span>🍂</span>
         <span>🌿</span>
     </div>
-   
     <header>
         <div class="logo">
             🌾 <span>SEPINGGAN GELIK</span>
@@ -40,19 +36,19 @@
             ☰
         </button>
         <nav id="navMenu">
-            <a href="index.html" class="active">
+            <a href="./index.html" class="active">
                 BERANDA
             </a>
-            <a href="profil.html">
+            <a href="./profil.html">
                 PROFIL DESA
             </a>
-            <a href="keindahan.html">
+            <a href="./keindahan.html">
                 KEINDAHAN
             </a>
-            <a href="kegiatan.html">
+            <a href="./kegiatan.html">
                 KEGIATAN
             </a>
-            <a href="lokasi.html">
+            <a href="./lokasi.html">
                 LOKASI
             </a>
         </nav>
@@ -92,7 +88,7 @@
                 Kabupaten Sambas, Kalimantan Barat.
             </p>
             <div class="buttons">
-                <a href="profil.html" class="btn">
+                <a href="./profil.html" class="btn">
                     🌱 Jelajahi Desa
                 </a>
                 <button id="playMusic" class="btn">
@@ -116,7 +112,7 @@
         </p>
         <audio controls>
             <source
-                src="suara-sambutan.mp3"
+                src="./suara-sambutan.mp3"
                 type="audio/mpeg">
         </audio>
     </section>
@@ -137,24 +133,30 @@
         <div class="mini-gallery">
             <div class="gallery-card">
                 <img
-                    src="sawah.jpg"
-                    alt="Sawah Desa">
+                    src="./sawah.jpg"
+                    alt="Sawah Desa"
+                    loading="lazy"
+                    onerror="this.style.display='none';">
                 <h3>
                     🌾 Keindahan Sawah
                 </h3>
             </div>
             <div class="gallery-card">
                 <img
-                    src="masyarakat.jpg"
-                    alt="Masyarakat Desa">
+                    src="./masyarakat.jpg"
+                    alt="Masyarakat Desa"
+                    loading="lazy"
+                    onerror="this.style.display='none';">
                 <h3>
                     👨‍👩‍👧‍👦 Masyarakat
                 </h3>
             </div>
             <div class="gallery-card">
                 <img
-                    src="masjid.jpg"
-                    alt="Masjid Desa">
+                    src="./masjid.jpg"
+                    alt="Masjid Desa"
+                    loading="lazy"
+                    onerror="this.style.display='none';">
                 <h3>
                     🕌 Tempat Ibadah
                 </h3>
@@ -176,7 +178,7 @@
     <!-- MUSIK UTAMA -->
     <audio id="musikDesa" loop>
         <source
-            src="lagu-desa.mp3"
+            src="./lagu-desa.mp3"
             type="audio/mpeg">
     </audio>
     <!-- FOOTER -->
@@ -191,6 +193,6 @@
             Kecamatan Semparuk • Kabupaten Sambas
         </small>
     </footer>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
