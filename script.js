@@ -5,10 +5,72 @@
 
 
 /* =====================================================
-   DARK MODE
+   URL DATABASE GOOGLE APPS SCRIPT
+===================================================== */
+
+const DATABASE_URL =
+"https://script.google.com/macros/s/AKfycbxJUs7mVemJU9cMDVvvR5fu-RkwhWpFSE_fEZgFqxztvSMD8I2H1_h6k03lWKf8rRu6Zg/exec";
+
+
+/* =====================================================
+   DATA CADANGAN
+   Digunakan jika Google Sheets gagal diakses
+===================================================== */
+
+const kegiatanCadangan = [
+
+    {
+        Judul: "Kegiatan Posyandu",
+
+        Deskripsi:
+        "Kegiatan pelayanan kesehatan masyarakat desa yang dilaksanakan secara rutin untuk membantu memantau kesehatan ibu dan anak.",
+
+        Tanggal: "2026-01-15",
+
+        Lokasi: "Desa Sepinggan Gelik",
+
+        Gambar: "./masyarakat.jpg"
+    },
+
+    {
+        Judul: "Gotong Royong Desa",
+
+        Deskripsi:
+        "Masyarakat bersama-sama menjaga kebersihan lingkungan dan fasilitas umum desa.",
+
+        Tanggal: "2026-02-10",
+
+        Lokasi: "Desa Sepinggan Gelik",
+
+        Gambar: "./masyarakat.jpg"
+    },
+
+    {
+        Judul: "Kegiatan Keamanan Lingkungan",
+
+        Deskripsi:
+        "Kegiatan menjaga keamanan dan ketertiban lingkungan melalui ronda malam dan poskamling.",
+
+        Tanggal: "2026-02-20",
+
+        Lokasi: "Poskamling Desa Sepinggan Gelik",
+
+        Gambar: "./poskamling.jpg"
+    }
+
+];
+
+
+/* =====================================================
+   SAAT HALAMAN SELESAI DIMUAT
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+
+    /* =================================================
+       DARK MODE
+    ================================================= */
 
     const themeToggle =
         document.getElementById("themeToggle");
@@ -23,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (themeToggle) {
             themeToggle.textContent = "☀️";
         }
+
     }
 
     if (themeToggle) {
@@ -41,7 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             themeToggle.textContent =
                 isDark ? "☀️" : "🌙";
+
         });
+
     }
 
 
@@ -62,6 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
             navMenu.classList.toggle("show");
 
         });
+
     }
 
 
@@ -128,10 +194,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (savedTime) {
 
-            music.currentTime =
-                parseFloat(savedTime);
+            try {
+
+                music.currentTime =
+                    parseFloat(savedTime);
+
+            } catch (error) {
+
+                console.log(
+                    "Posisi musik tidak dapat dipulihkan."
+                );
+
+            }
 
         }
+
 
         const wasPlaying =
             localStorage.getItem("musicPlaying");
@@ -149,7 +226,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /* SIMPAN POSISI MUSIK */
+        /* =============================================
+           SIMPAN POSISI MUSIK
+        ============================================= */
 
         setInterval(() => {
 
@@ -186,6 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
+
     }
 
 
@@ -237,6 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
+
     }
 
 
@@ -299,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       TAMPILKAN KEGIATAN
+       TAMPILKAN KEGIATAN DARI DATABASE
     ================================================= */
 
     tampilkanKegiatan();
@@ -308,63 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* =====================================================
-   URL DATABASE GOOGLE APPS SCRIPT
-===================================================== */
-
-const DATABASE_URL =
-"https://script.google.com/macros/s/AKfycbzE-SlHBHIZhP6cX6MnZpdM5zauirTyDIJ8ANa0i230Vrr4_o_n6eKJgroouCRW3cvXVQ/exec";
-
-
-/* =====================================================
-   DATA CADANGAN
-===================================================== */
-
-const kegiatanCadangan = [
-
-    {
-        Judul: "Kegiatan Posyandu",
-
-        Deskripsi:
-        "Kegiatan pelayanan kesehatan masyarakat desa yang dilaksanakan secara rutin untuk membantu memantau kesehatan ibu dan anak.",
-
-        Tanggal: "2026-01-15",
-
-        Lokasi: "Desa Sepinggan Gelik",
-
-        Gambar: "./masyarakat.jpg"
-    },
-
-    {
-        Judul: "Gotong Royong Desa",
-
-        Deskripsi:
-        "Masyarakat bersama-sama menjaga kebersihan lingkungan dan fasilitas umum desa.",
-
-        Tanggal: "2026-02-10",
-
-        Lokasi: "Desa Sepinggan Gelik",
-
-        Gambar: "./masyarakat.jpg"
-    },
-
-    {
-        Judul: "Kegiatan Keamanan Lingkungan",
-
-        Deskripsi:
-        "Kegiatan menjaga keamanan dan ketertiban lingkungan melalui ronda malam dan poskamling.",
-
-        Tanggal: "2026-02-20",
-
-        Lokasi: "Poskamling Desa Sepinggan Gelik",
-
-        Gambar: "./poskamling.jpg"
-    }
-
-];
-
-
-/* =====================================================
-   FUNGSI MENAMPILKAN KEGIATAN
+   MENGAMBIL KEGIATAN DARI GOOGLE SHEETS
 ===================================================== */
 
 async function tampilkanKegiatan() {
@@ -374,12 +399,17 @@ async function tampilkanKegiatan() {
             "kegiatanContainer"
         );
 
-    /* Jika bukan halaman kegiatan */
+
+    /* -----------------------------------------------
+       Jika bukan halaman kegiatan
+    ------------------------------------------------ */
 
     if (!container) return;
 
 
-    /* Loading */
+    /* -----------------------------------------------
+       Loading
+    ------------------------------------------------ */
 
     container.innerHTML = `
 
@@ -399,34 +429,53 @@ async function tampilkanKegiatan() {
     try {
 
         const response =
-            await fetch(DATABASE_URL);
+            await fetch(
+                DATABASE_URL +
+                "?action=getKegiatan"
+            );
 
 
         if (!response.ok) {
 
             throw new Error(
-                "Server database tidak merespons."
+                "Database tidak merespons."
             );
 
         }
 
 
-        const data =
+        const result =
             await response.json();
 
 
-        if (!Array.isArray(data)) {
+        console.log(
+            "Data dari Google Sheets:",
+            result
+        );
+
+
+        /* -------------------------------------------
+           Periksa hasil API
+        ------------------------------------------- */
+
+        if (
+            !result ||
+            result.success !== true ||
+            !Array.isArray(result.data)
+        ) {
 
             throw new Error(
-                "Format data Google Sheets tidak sesuai."
+                "Format database tidak sesuai."
             );
 
         }
 
 
-        /* Database kosong */
+        /* -------------------------------------------
+           Jika database kosong
+        ------------------------------------------- */
 
-        if (data.length === 0) {
+        if (result.data.length === 0) {
 
             tampilkanDataKegiatan(
                 container,
@@ -438,11 +487,13 @@ async function tampilkanKegiatan() {
         }
 
 
-        /* Database berhasil */
+        /* -------------------------------------------
+           Database berhasil
+        ------------------------------------------- */
 
         tampilkanDataKegiatan(
             container,
-            data
+            result.data
         );
 
 
@@ -454,7 +505,9 @@ async function tampilkanKegiatan() {
         );
 
 
-        /* Gunakan data cadangan */
+        /* -------------------------------------------
+           Gunakan data cadangan
+        ------------------------------------------- */
 
         tampilkanDataKegiatan(
             container,
@@ -467,7 +520,7 @@ async function tampilkanKegiatan() {
 
 
 /* =====================================================
-   MEMBUAT CARD KEGIATAN
+   MENAMPILKAN CARD KEGIATAN
 ===================================================== */
 
 function tampilkanDataKegiatan(
@@ -492,7 +545,7 @@ function tampilkanDataKegiatan(
 
 
         /* =================================================
-           DATA
+           JUDUL
         ================================================= */
 
         const judul =
@@ -501,11 +554,19 @@ function tampilkanDataKegiatan(
             "Kegiatan Desa";
 
 
+        /* =================================================
+           DESKRIPSI
+        ================================================= */
+
         const deskripsi =
             kegiatan.Deskripsi ||
             kegiatan.deskripsi ||
             "Belum ada deskripsi kegiatan.";
 
+
+        /* =================================================
+           LOKASI
+        ================================================= */
 
         const lokasi =
             kegiatan.Lokasi ||
@@ -513,22 +574,25 @@ function tampilkanDataKegiatan(
             "Desa Sepinggan Gelik";
 
 
+        /* =================================================
+           GAMBAR
+        ================================================= */
+
         let gambar =
             kegiatan.Gambar ||
             kegiatan.gambar ||
             "";
 
 
-        /* =================================================
-           PERBAIKAN FOTO
-        ================================================= */
-
         /*
-           Jika kolom Gambar kosong,
-           gunakan foto berdasarkan urutan.
+           Jika gambar kosong,
+           gunakan gambar cadangan.
         */
 
-        if (!gambar || gambar.trim() === "") {
+        if (
+            !gambar ||
+            String(gambar).trim() === ""
+        ) {
 
             const fotoCadangan = [
 
@@ -551,18 +615,13 @@ function tampilkanDataKegiatan(
         }
 
 
-        /*
-           Bersihkan kemungkinan spasi
-        */
-
         gambar =
-            gambar.trim();
+            String(gambar).trim();
 
 
         /*
-           Jika Google Sheets hanya berisi
-           nama file seperti "masyarakat.jpg",
-           otomatis tambahkan "./"
+           Jika hanya nama file,
+           tambahkan "./"
         */
 
         if (
@@ -622,14 +681,14 @@ function tampilkanDataKegiatan(
 
 
         /* =================================================
-           CARD
+           CARD HTML
         ================================================= */
 
         card.innerHTML = `
 
             <img
-                src="${gambar}"
-                alt="${judul}"
+                src="${escapeHTML(gambar)}"
+                alt="${escapeHTML(judul)}"
                 loading="lazy"
                 onerror="
                     this.onerror=null;
@@ -644,21 +703,21 @@ function tampilkanDataKegiatan(
                 </span>
 
                 <h2>
-                    ${judul}
+                    ${escapeHTML(judul)}
                 </h2>
 
                 <p>
-                    ${deskripsi}
+                    ${escapeHTML(deskripsi)}
                 </p>
 
                 <div class="activity-info">
 
                     <small>
-                        📅 ${tanggalFormat}
+                        📅 ${escapeHTML(tanggalFormat)}
                     </small>
 
                     <small>
-                        📍 ${lokasi}
+                        📍 ${escapeHTML(lokasi)}
                     </small>
 
                 </div>
@@ -674,7 +733,7 @@ function tampilkanDataKegiatan(
 
 
     /* =================================================
-       ANIMASI
+       ANIMASI CARD
     ================================================= */
 
     setTimeout(() => {
@@ -690,5 +749,21 @@ function tampilkanDataKegiatan(
             });
 
     }, 50);
+
+}
+
+
+/* =====================================================
+   KEAMANAN TEKS HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
 }
