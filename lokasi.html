@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOKASI | SEPINGGAN GELIK</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Lokasi Desa | SEPINGGAN GELIK</title>
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap"
+        rel="stylesheet">
 </head>
 <body>
     <div class="stars">
@@ -21,9 +23,12 @@
     <div class="floating-leaves">
         <span>🍃</span>
         <span>🌿</span>
+        <span>🍃</span>
         <span>🌱</span>
         <span>🍂</span>
+        <span>🌿</span>
     </div>
+    <!-- HEADER -->
     <header>
         <div class="logo">
             🌾 <span>SEPINGGAN GELIK</span>
@@ -34,20 +39,20 @@
             ☰
         </button>
         <nav id="navMenu">
-            <a href="index.html">
+            <a href="./index.html">
                 BERANDA
             </a>
-            <a href="profil.html">
+            <a href="./profil.html">
                 PROFIL DESA
             </a>
-            <a href="keindahan.html">
+            <a href="./keindahan.html">
                 KEINDAHAN
             </a>
-            <a href="kegiatan.html">
+            <a href="./kegiatan.html">
                 KEGIATAN
             </a>
             <a
-                href="lokasi.html"
+                href="./lokasi.html"
                 class="active">
                 LOKASI
             </a>
@@ -58,6 +63,7 @@
             🌙
         </button>
     </header>
+    <!-- MAIN -->
     <main class="page">
         <section class="page-hero">
             <p>
@@ -67,41 +73,50 @@
                 LOKASI DESA
             </h1>
             <div class="line"></div>
+            <p>
+                Temukan lokasi Desa Sepinggan Gelik
+                melalui peta di bawah ini.
+            </p>
         </section>
-        <section class="location-card reveal">
-            <div class="location-info">
-                <span>📍</span>
-                <h2>
-                    DESA SEPINGGAN GELIK
-                </h2>
-                <p>
-                    Kecamatan Semparuk
-                    <br>
-                    Kabupaten Sambas
-                    <br>
-                    Kalimantan Barat, Indonesia
-                </p>
-                <br>
-                <a
-                    href="https://www.google.com/maps/search/?api=1&query=Desa+Sepinggan+Gelik+Semparuk+Sambas"
-                    target="_blank"
-                    class="btn">
-                    🗺️ Buka Google Maps
-                </a>
-            </div>
-            <div class="map-box">
-                <iframe
-                    src="https://www.google.com/maps?q=Desa%20Sepinggan%20Gelik%20Semparuk%20Sambas&output=embed"
-                    loading="lazy">
-                </iframe>
+        <!-- LOKASI -->
+        <section class="location-section reveal">
+            <div class="location-card">
+                <div class="location-info">
+                    <div class="location-icon">
+                        📍
+                    </div>
+                    <h2>
+                        DESA SEPINGGAN GELIK
+                    </h2>
+                    <p>
+                        Kecamatan Semparuk,
+                        Kabupaten Sambas,
+                        Kalimantan Barat.
+                    </p>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps?q=Desa+Sepinggan+Gelik,+Kecamatan+Semparuk,+Kabupaten+Sambas,+Kalimantan+Barat&output=embed"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
         </section>
     </main>
-    <audio id="musikDesa" loop>
+    <!-- MUSIK -->
+    <audio
+        id="musikDesa"
+        loop>
         <source
-            src="lagu-desa.mp3"
+            src="./lagu-desa.mp3"
             type="audio/mpeg">
     </audio>
+    <!-- FOOTER -->
     <footer>
         <div class="footer-decoration">
             🌿 🌾 🌿 🌾 🌿
@@ -113,6 +128,6 @@
             KECAMATAN SEMPARUK • KABUPATEN SAMBAS
         </small>
     </footer>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
